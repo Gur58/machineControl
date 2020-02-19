@@ -1,44 +1,57 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+API
 
-## Available Scripts
+Получение данных о станках
 
-In the project directory, you can run:
+Request: 
+type: get, url: /machines
 
-### `npm start`
+Response:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[   {id:1, name: "machine1", location: "1 cex"},
+    {id:2, name: "machine2", location: "2 cex"},
+    {id:3, name: "machine3", location: "3 cex"},
+    {id:4, name: "machine4", location: "4 cex"},
+    {id:5, name: "machine5", location: "5 cex"}
+    ];
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Получение данных о статистики за месяц
 
-### `npm test`
+Request: 
+type: post, url: /chart
+body: date: {date: "2019-12-24T14:39:58.010Z"}
+      id: 1
+      
+Response: 
+[
+    ['Day', 'Details Total: 13650'],
+    ['2',  1000],
+    ['3',  1100],
+    ['4',  1180],
+    ['5',  1080],
+    ['6',  1250],
+    ['7',  1310],
+    ['8',  1500],
+    ['10',  1430],
+    ['11',  1250],
+    ['12',  1340],
+    ['13',  1210],
+];
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Получение данных статистики за день
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Request: 
+type: post, url: /details
+body: date: {date: "2019-12-24T14:39:58.010Z"}
+      id: 1
+      
+Responce:
+[
+    {id:1, time: '9:53', detailNumber: 1},
+    {id:1, time: '10:11', detailNumber: 2},
+    {id:1, time: '10:48', detailNumber: 3},
+    {id:1, time: '11:30', detailNumber: 4},
+    {id:1, time: '11:59', detailNumber: 5},
+    {id:1, time: '12:22', detailNumber: 6},
+    {id:1, time: '13:14', detailNumber: 7},
+    {id:1, time: '13:49', detailNumber: 8},
+]

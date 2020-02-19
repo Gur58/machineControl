@@ -1,0 +1,14 @@
+.preloader{
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #2c323c;
+  height: 100vh;
+  z-index: 1;
+  width: 100vw;
+  img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+}
