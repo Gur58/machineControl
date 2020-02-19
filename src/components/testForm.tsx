@@ -6,7 +6,6 @@ class TestForm extends React.Component<any, any>{
     renderField = ({ input, label, type}:any) => {
         const {name, onBlur, onChange, onDragStart, onDrop, onFocus} = input;
         return (<div>
-            {console.log(input)}
             <label>{label}</label>
             <div>
                 <input name={name} placeholder={label} type={type}/>
